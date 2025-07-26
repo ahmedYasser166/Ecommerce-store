@@ -1,4 +1,4 @@
-<div class="p-4" *ngIf="cartItems.length; else emptyCart">
+<div class="p-4 min-h-screen" *ngIf="cartItems.length; else emptyCart">
   <div
     *ngFor="let item of cartItems"
     class="border-b border-gray-200 dark:border-gray-700 py-4 flex items-center gap-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
