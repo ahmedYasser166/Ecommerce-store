@@ -1,0 +1,43 @@
+<div
+  class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition duration-200 cursor-pointer bg-white dark:bg-gray-900"
+>
+  <!-- Image -->
+  <a [routerLink]="['/products', product.id]">
+    <img
+      [src]="product.image"
+      alt="{{ product.title }}"
+      class="w-full h-48 object-contain mb-4"
+    />
+  </a>
+
+  <!-- Title -->
+  <h3 class="font-semibold text-lg mb-1 line-clamp-2 text-gray-900 dark:text-gray-100">
+    {{ product.title.split(" ").slice(0, 2).join(" ") }}
+  </h3>
+
+  <!-- ⭐ Rating -->
+  <div class="flex items-center gap-1 mb-2">
+    <ng-container *ngFor="let _ of filledStars">
+      <i class="fas fa-star text-yellow-400 text-sm"></i>
+    </ng-container>
+    <ng-container *ngFor="let _ of emptyStars">
+      <i class="far fa-star text-gray-300 dark:text-gray-600 text-sm"></i>
+    </ng-container>
+    <span class="text-sm text-gray-600 dark:text-gray-400 ms-1">
+      ({{ product.rating?.count }} reviews)
+    </span>
+  </div>
+
+  <!-- Price -->
+  <p class="text-indigo-600 dark:text-indigo-400 font-bold text-md">
+    ${{ product.price }}
+  </p>
+
+  <!-- ✅ Button -->
+  <button
+    (click)="addToCart()"
+    class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded mt-2"
+  >
+    Add to Cart
+  </button>
+</div>

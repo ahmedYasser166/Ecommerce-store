@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<!-- Main Container -->
+<div
+  class="pt-[70px] pb-[75px]  bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Spinner -->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-beat"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+
+<app-footer></app-footer>

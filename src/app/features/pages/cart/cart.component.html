@@ -1,0 +1,34 @@
+<div class="p-4" *ngIf="cartItems.length; else emptyCart">
+  <div
+    *ngFor="let item of cartItems"
+    class="border-b border-gray-200 dark:border-gray-700 py-4 flex items-center gap-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+  >
+    <img
+      [src]="item.product.image"
+      [alt]="item.product.title"
+      class="w-16 h-16 object-contain"
+    />
+
+    <div class="flex-1">
+      <a
+        [routerLink]="['/products', item.product.id]"
+        class="text-blue-600 dark:text-blue-400 font-medium hover:underline block mb-1"
+      >
+        {{ item.product.title }}
+      </a>
+      <div class="text-gray-600 dark:text-gray-300 text-sm">
+        ${{ item.product.price }} × {{ item.quantity }}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 text-right font-bold text-lg text-gray-800 dark:text-gray-100">
+    Total: ${{ getTotal() }}
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <h1 class="text-center text-gray-500 dark:text-gray-400 mt-8">
+    Your cart is empty
+  </h1>
+</ng-template>
